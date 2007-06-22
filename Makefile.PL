@@ -4,7 +4,7 @@ use ExtUtils::MakeMaker;
 
 WriteMakefile(
     NAME                => 'Text::Compare',
-    AUTHOR              => 'Marcus Thiesen <marcus@thiesen.org>',
+    AUTHOR              => 'Serguei Trouchelle <stro@railways.dp.ua>, Marcus Thiesen <marcus@thiesen.org>',
     VERSION_FROM        => 'lib/Text/Compare.pm',
     ABSTRACT_FROM       => 'lib/Text/Compare.pm',
     PL_FILES            => {},

@@ -6,4 +6,6 @@ README
 lib/Text/Compare.pm
 t/00-load.t
 t/01-func.t
-t/pod.t
+t/tpod.t
+t/tpodc.t
+

@@ -4,9 +4,9 @@ NAME
 SYNOPSIS
         use Text::Compare;
         # the instant way:
-        my $tc = new Text::Compare( memoize => 1, stip_html => 0 );
+        my $tc = new Text::Compare( memoize => 1, strip_html => 0 );
 
-        my $sim = $ts->similarity($text_a, $text_b);
+        my $sim = $tc->similarity($text_a, $text_b);
         #$sim will be between 0 and 1
 
         # second way (cache lists):
@@ -31,7 +31,7 @@ SYNOPSIS
         $tc3->second($some_other_text);
 
         print $tc3->similarity;
-     
+
 DESCRIPTION
     Text::Compare is an attempt to write a high speed text compare tool
     based on Vector comparision which uses language dependend stopwords.
@@ -55,6 +55,15 @@ METHODS
         which address the same topic but are in different languages might
         get relatively high values.
 
+    first
+    first_list
+    second
+    second_list
+    cosine
+    make_vector
+    make_word_list
+    get_words
+
 LANGUAGES
     Text::Compare uses the set of languages which is common to
     Lingua::Identify, Lingua::Stem and Lingua::StopWords, namely:
@@ -68,8 +77,9 @@ LANGUAGES
     pt
     sv
 
-AUTHOR
-    Marcus Thiesen, "<marcus@thiesen.org>"
+AUTHORS
+    Marcus Thiesen, "<marcus@thiesen.org>" Serguei Trouchelle
+    "<stro@railways.dp.ua>"
 
 BUGS
     Please report any bugs or feature requests to
@@ -83,7 +93,8 @@ ACKNOWLEDGEMENTS
     Ceglowski.
 
 COPYRIGHT & LICENSE
-    Copyright 2005 Marcus Thiesen, All Rights Reserved.
+    Copyright 2005 Marcus Thiesen, All Rights Reserved. Copyright 2007
+    Serguei Trouchelle
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

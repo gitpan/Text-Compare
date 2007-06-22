@@ -7,6 +7,9 @@ BEGIN {
 	use_ok( 'Text::Compare' );
 }
 
+no warnings; # Skip warnings from Text::German::Endung
+$SIG{'WARN'} = sub {};
+
 my $string1 = "Hallo Welt, was fuer ein schoener Tag heute";
 my $string2 = "Hallo Welt, was fuer ein schrecklicher Tag heute";
 
@@ -28,3 +31,4 @@ $tc2->second_list($list2);
 
 ok($tc2->similarity() eq '0.8', 'Third call');
 ok($tc2->similarity() eq '0.8', 'Fourth call');
+
