@@ -30,6 +30,10 @@
 #                 Fixed bug 21588 (https://rt.cpan.org/Ticket/Display.html?id=21588)
 #
 
+# 2007/06/23 stro v1.03
+#                 Fixed POD
+#                 License added to meta.yml
+
 package Text::Compare;
 
 =pod
@@ -93,7 +97,7 @@ use Sparse::Vector;
 
 use Carp;
 
-our $VERSION = '1.02';
+our $VERSION = '1.03';
 
 =head1 METHODS
 
@@ -174,8 +178,8 @@ sub similarity {
     $self->second($second) if defined $second;
 
     $self->make_word_list();
-    my $v1 = $self->make_vector( shift @{$self->{list}} );
-    my $v2 = $self->make_vector( shift @{$self->{list}} );
+    my $v1 = $self->make_vector( shift @{$self->{'list'}} );
+    my $v2 = $self->make_vector( shift @{$self->{'list'}} );
 
     return $self->cosine( $v1, $v2 );
 }
@@ -266,15 +270,15 @@ sub make_word_list {
     my $self = shift;
     my %all_words;
 
-    $self->{list} = [];
+    $self->{'list'} = [];
 
     my %words1 = %{$self->{'first'}};
-    push @{$self->{list}}, \%words1;
+    push @{$self->{'list'}}, \%words1;
     %all_words = %words1;
 
     my %words2 = %{$self->{'second'}};
 
-    push @{$self->{list}}, \%words2;
+    push @{$self->{'list'}}, \%words2;
     foreach my $k ( keys %words2 ) {
 	$all_words{$k} += $words2{$k};
     }
@@ -364,11 +368,13 @@ your bug as I make changes.
 The actual code is heavilly based on Search::VectorSpace by 
 Maciej Ceglowski.
 
-=head1 COPYRIGHT & LICENSE
+=head1 COPYRIGHT
 
 Copyright 2005 Marcus Thiesen, All Rights Reserved.
 
-          2007 Serguei Trouchelle
+Copyright 2007 Serguei Trouchelle
+
+=head1 LICENSE
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

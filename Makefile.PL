@@ -7,6 +7,7 @@ WriteMakefile(
     AUTHOR              => 'Serguei Trouchelle <stro@railways.dp.ua>, Marcus Thiesen <marcus@thiesen.org>',
     VERSION_FROM        => 'lib/Text/Compare.pm',
     ABSTRACT_FROM       => 'lib/Text/Compare.pm',
+    LICENSE             => 'perl',
     PL_FILES            => {},
     PREREQ_PM => {
         'Test::More' => 0,
